@@ -1,0 +1,9 @@
+name: Skillbox_old_version
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - requests=2.27.1
+  - selenium
+  - webdriver-manager
+  - pytest

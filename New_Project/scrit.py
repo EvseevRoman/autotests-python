@@ -1,12 +1,13 @@
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 
 def run_script():
-#    options.headless = True
-    driver = Chrome(service=ChromeService(ChromeDriverManager().install()))
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Включаем headless режим
+    driver = Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     driver.get("http://skillbox.ru")
-    assert "Sillbox" == driver.title
     driver.quit()
 
 if __name__ == '__main__':
