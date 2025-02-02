@@ -7,3 +7,4 @@ dependencies:
   - selenium
   - webdriver-manager
   - pytest
+  - allure-pytest
