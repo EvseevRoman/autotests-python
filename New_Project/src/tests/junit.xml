@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="47.684" timestamp="2025-02-03T19:57:44.207003+03:00" hostname="Lenovo"><testcase classname="src.tests.First_test.TestExample" name="test_example_1" time="47.664" /></testsuite></testsuites>
