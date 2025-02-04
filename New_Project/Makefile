@@ -1,4 +1,2 @@
-run_test:
-    echo "before tests"
+run_tests:
     pytest
-    echo "after tests"
