@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="93.418" timestamp="2025-02-16T16:40:14.443496+03:00" hostname="Lenovo"><testcase classname="first_test.TestExample" name="test_example_1" time="48.492" /><testcase classname="first_test.TestExample" name="test_example_2" time="44.755"><failure message="AssertionError: assert 'Skillbox – образовательная платформа  онлайн-курсами.' == 'Skillbox – образовательная платформа с онлайн-курсами.'&#10;  &#10;  - Skillbox – образовательная платформа с онлайн-курсами.&#10;  ?                                      -&#10;  + Skillbox – образовательная платформа  онлайн-курсами.">self = &lt;first_test.TestExample object at 0x0000018F25008A70&gt;
+set_up_browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="85acf779cfe63627f702b919a181f2c6")&gt;
+
+    def test_example_2(self, set_up_browser):
+        driver = set_up_browser
+        driver.get("http://skillbox.ru")
+&gt;       assert "Skillbox – образовательная платформа  онлайн-курсами." == driver.title
+E       AssertionError: assert 'Skillbox – образовательная платформа  онлайн-курсами.' == 'Skillbox – образовательная платформа с онлайн-курсами.'
+E         
+E         - Skillbox – образовательная платформа с онлайн-курсами.
+E         ?                                      -
+E         + Skillbox – образовательная платформа  онлайн-курсами.
+
+first_test.py:16: AssertionError</failure></testcase></testsuite></testsuites>
