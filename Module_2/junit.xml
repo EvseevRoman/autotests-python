@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="2" time="93.334" timestamp="2025-02-27T22:38:53.593579+03:00" hostname="Lenovo"><testcase classname="first_test.TestExample" name="test_example_1" time="47.231" /><testcase classname="first_test.TestExample" name="test_example_2" time="46.068" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="88.469" timestamp="2025-03-01T22:49:31.277504+03:00" hostname="Lenovo"><testcase classname="first_test.TestExample" name="test_example_1" time="45.922" /><testcase classname="first_test.TestExample" name="test_example_2" time="42.474"><failure message="AssertionError: assert 'Skillbox – образовательная платформа  онлайн-курсами.' == 'Skillbox – образовательная платформа с онлайн-курсами.'&#10;  &#10;  - Skillbox – образовательная платформа с онлайн-курсами.&#10;  ?                                      -&#10;  + Skillbox – образовательная платформа  онлайн-курсами.">self = &lt;first_test.TestExample object at 0x000002B9134FCD70&gt;
+set_up_browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="305a136e40a1ddfaf286555dfc38fa00")&gt;
+
+    def test_example_2(self, set_up_browser):
+        driver = set_up_browser
+        driver.get("http://skillbox.ru")
+&gt;       check_title(driver = driver, title = "Skillbox – образовательная платформа  онлайн-курсами.")
+
+first_test.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+driver = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="305a136e40a1ddfaf286555dfc38fa00")&gt;
+title = 'Skillbox – образовательная платформа  онлайн-курсами.'
+
+    @allure.step("Проверка заголовка страницы")
+    def check_title(driver, title):
+&gt;       assert title == driver.title
+E       AssertionError: assert 'Skillbox – образовательная платформа  онлайн-курсами.' == 'Skillbox – образовательная платформа с онлайн-курсами.'
+E         
+E         - Skillbox – образовательная платформа с онлайн-курсами.
+E         ?                                      -
+E         + Skillbox – образовательная платформа  онлайн-курсами.
+
+first_test.py:5: AssertionError</failure></testcase></testsuite></testsuites>

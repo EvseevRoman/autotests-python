@@ -13,4 +13,4 @@ class TestExample:
    def test_example_2(self, set_up_browser):
        driver = set_up_browser
        driver.get("http://skillbox.ru")
-       check_title(driver = driver, title = "Skillbox – образовательная платформа с онлайн-курсами.")
+       check_title(driver = driver, title = "Skillbox – образовательная платформа  онлайн-курсами.")
