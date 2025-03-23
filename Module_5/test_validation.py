@@ -1,6 +1,4 @@
-import time
 import selenium.webdriver
-from selenium.common import TimeoutException
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,11 +9,11 @@ class TestValidation:
     def test_case_1(self, set_up_browser):
         driver = set_up_browser
         wait = WebDriverWait(driver, timeout=10)
+        text = "in:title bug"
 
         driver.get("https://github.com/microsoft/vscode/issues")
         field_search = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@id='repository-input']")))
         field_search.click()
-        text = "in:title bug"
         field_search.send_keys(text + Keys.ENTER)
         wait.until(EC.text_to_be_present_in_element((By.XPATH, "//h3/a/span"), "bug"))
 
@@ -27,6 +25,7 @@ class TestValidation:
     def test_case_2(self, set_up_browser):
         driver = set_up_browser
         wait = WebDriverWait(driver, timeout=10)
+        text = "bpasero"
 
         driver.get("https://github.com/microsoft/vscode/issues")
         check_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='authors-anchor-button']")))
@@ -34,7 +33,6 @@ class TestValidation:
         field_filter_authors = driver.find_element(By.XPATH,
                                                    "//div[@id='__primerPortalRoot__']/div/div/div/div[2]/div/span/input")
         field_filter_authors.click()
-        text = "bpasero"
         field_filter_authors.send_keys(text)
         choice_author = driver.find_element(By.XPATH, "//div[@id='__primerPortalRoot__']/div/div/div/div[2]/div[2]")
         choice_author.click()
@@ -48,10 +46,10 @@ class TestValidation:
     def test_case_3(self, set_up_browser):
         driver = set_up_browser
         wait = WebDriverWait(driver, timeout=10)
+        action_chains = selenium.webdriver.ActionChains(driver)
 
         driver.get("https://github.com/search/advanced")
         check_select = wait.until(EC.visibility_of_element_located((By.ID, "search_language")))
-        action_chains = selenium.webdriver.ActionChains(driver)
         action_chains.click_and_hold(check_select) \
             .perform()
         choice_language = driver.find_element(By.XPATH, "//option[contains(text(), 'Python')]")
@@ -75,11 +73,11 @@ class TestValidation:
     def test_case_4(self, set_up_browser):
         driver = set_up_browser
         wait = WebDriverWait(driver, timeout=10)
+        action_chains = selenium.webdriver.ActionChains(driver)
 
         driver.get("https://skillbox.ru/code/")
         driver.maximize_window()
         radio_button = wait.until(EC.presence_of_element_located((By.XPATH, "//label/child::span[contains(text(), 'Профессия')]")))
-        action_chains = selenium.webdriver.ActionChains(driver)
         action_chains.click(radio_button) \
             .perform()
         filter_left_slider = driver.find_element(By.XPATH,
@@ -115,27 +113,14 @@ class TestValidation:
     def test_case_5(self, set_up_browser):
         driver = set_up_browser
         wait = WebDriverWait(driver, timeout=30)
+        action_chains = selenium.webdriver.ActionChains(driver)
 
         driver.get("https://github.com/microsoft/vscode/graphs/commit-activity")
         driver.maximize_window()
-        #time.sleep(2)
-        #chart = driver.find_element(By.XPATH, "//*[contains(@class, 'viz')]")
-        chart = wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'viz')]")))
-        action_chains = selenium.webdriver.ActionChains(driver)
-        action_chains.move_to_element(chart) \
-            .perform()
-        elem_chart = driver.find_element(By.XPATH, "//*[contains(@class, 'viz')]//*[contains(@class, 'bar')][28]")
+        elem_chart = wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'viz')]//*[contains(@class, 'bar')][27]")))
         action_chains.move_to_element(elem_chart) \
             .perform()
-        time.sleep(2)
-        #elem_tooltip = driver.find_element(By.XPATH, "//div[@class='svg-tip n']/strong")
-        num_elem_tooltip = wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@class='svg-tip n']/strong")))
-        num_tooltip = num_elem_tooltip.text
-        pass
-        # #text_tooltip = driver.find_element(By.XPATH, "(By.XPATH, '//div[@class='svg-tip n']/strong')").text
-        # text_elem_tooltip = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='svg-tip n']")))
-        # text_tooltip = text_elem_tooltip.text
-        #
-        # assert num_tooltip == '274' and text_tooltip == ' commits the week of Sep 29'
+        text_elem_tooltip = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='svg-tip n']")))
+        text_tooltip = text_elem_tooltip.get_attribute('innerHTML')
 
-        pass
+        assert text_tooltip == '<strong>274</strong> commits the week of Sep 29'
