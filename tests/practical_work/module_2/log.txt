@@ -1,0 +1,58 @@
+[2025-04-05 04:55:22,228] INFO - browser.py: Prepare chrome browser ...
+[2025-04-05 04:55:22,229] INFO - logger.py: ====== WebDriver manager ======
+[2025-04-05 04:55:22,935] INFO - logger.py: Get LATEST chromedriver version for google-chrome
+[2025-04-05 04:55:22,937] DEBUG - connectionpool.py: Starting new HTTPS connection (1): googlechromelabs.github.io:443
+[2025-04-05 04:55:23,089] DEBUG - connectionpool.py: https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 10496
+[2025-04-05 04:55:23,091] INFO - logger.py: Get LATEST chromedriver version for google-chrome
+[2025-04-05 04:55:23,092] DEBUG - connectionpool.py: Starting new HTTPS connection (1): googlechromelabs.github.io:443
+[2025-04-05 04:55:23,238] DEBUG - connectionpool.py: https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 10496
+[2025-04-05 04:55:23,241] INFO - logger.py: Driver [C:\Users\Lenovo\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+[2025-04-05 04:55:23,241] DEBUG - driver_finder.py: Skipping Selenium Manager; path to chrome driver specified in Service class: C:\Users\Lenovo\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe
+[2025-04-05 04:55:23,245] DEBUG - service.py: Started executable: `C:\Users\Lenovo\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe` in a child process with pid: 14156 using 0 to output -3
+[2025-04-05 04:55:23,747] DEBUG - remote_connection.py: POST http://localhost:63748/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': 'none', 'goog:chromeOptions': {'extensions': [], 'args': []}}}}
+[2025-04-05 04:55:23,747] DEBUG - connectionpool.py: Starting new HTTP connection (1): localhost:63748
+[2025-04-05 04:55:24,239] DEBUG - connectionpool.py: http://localhost:63748 "POST /session HTTP/1.1" 200 0
+[2025-04-05 04:55:24,240] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"134.0.6998.179","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\scoped_dir14156_1824032210"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:63754"},"networkConnectionEnabled":false,"pageLoadStrategy":"none","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"af64f3fae7042f645f825937a26b4bf1"}} | headers=HTTPHeaderDict({'Content-Length': '883', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:24,240] DEBUG - remote_connection.py: Finished Request
+[2025-04-05 04:55:24,240] INFO - browser.py: Browser chrome has been started.
+[2025-04-05 04:55:24,241] DEBUG - remote_connection.py: POST http://localhost:63748/session/af64f3fae7042f645f825937a26b4bf1/url {'url': 'https://lipetsk.hh.ru/'}
+[2025-04-05 04:55:24,242] DEBUG - connectionpool.py: http://localhost:63748 "POST /session/af64f3fae7042f645f825937a26b4bf1/url HTTP/1.1" 200 0
+[2025-04-05 04:55:24,242] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:24,242] DEBUG - remote_connection.py: Finished Request
+[2025-04-05 04:55:24,242] DEBUG - remote_connection.py: GET http://localhost:63748/session/af64f3fae7042f645f825937a26b4bf1/title {}
+[2025-04-05 04:55:24,589] DEBUG - connectionpool.py: http://localhost:63748 "GET /session/af64f3fae7042f645f825937a26b4bf1/title HTTP/1.1" 200 0
+[2025-04-05 04:55:24,589] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":"Работа в Липецке, поиск персонала и публикация вакансий - lipetsk.hh.ru"} | headers=HTTPHeaderDict({'Content-Length': '130', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:24,589] DEBUG - remote_connection.py: Finished Request
+[2025-04-05 04:55:24,590] DEBUG - remote_connection.py: DELETE http://localhost:63748/session/af64f3fae7042f645f825937a26b4bf1 {}
+[2025-04-05 04:55:24,627] DEBUG - connectionpool.py: http://localhost:63748 "DELETE /session/af64f3fae7042f645f825937a26b4bf1 HTTP/1.1" 200 0
+[2025-04-05 04:55:24,628] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:24,628] DEBUG - remote_connection.py: Finished Request
+[2025-04-05 04:55:26,707] INFO - browser.py: Prepare chrome browser ...
+[2025-04-05 04:55:26,708] INFO - logger.py: ====== WebDriver manager ======
+[2025-04-05 04:55:27,390] INFO - logger.py: Get LATEST chromedriver version for google-chrome
+[2025-04-05 04:55:27,391] DEBUG - connectionpool.py: Starting new HTTPS connection (1): googlechromelabs.github.io:443
+[2025-04-05 04:55:27,536] DEBUG - connectionpool.py: https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 10496
+[2025-04-05 04:55:27,538] INFO - logger.py: Get LATEST chromedriver version for google-chrome
+[2025-04-05 04:55:27,539] DEBUG - connectionpool.py: Starting new HTTPS connection (1): googlechromelabs.github.io:443
+[2025-04-05 04:55:27,682] DEBUG - connectionpool.py: https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 10496
+[2025-04-05 04:55:27,685] INFO - logger.py: Driver [C:\Users\Lenovo\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+[2025-04-05 04:55:27,685] DEBUG - driver_finder.py: Skipping Selenium Manager; path to chrome driver specified in Service class: C:\Users\Lenovo\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe
+[2025-04-05 04:55:27,688] DEBUG - service.py: Started executable: `C:\Users\Lenovo\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe` in a child process with pid: 7856 using 0 to output -3
+[2025-04-05 04:55:28,213] DEBUG - remote_connection.py: POST http://localhost:63779/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': 'none', 'goog:chromeOptions': {'extensions': [], 'args': []}}}}
+[2025-04-05 04:55:28,213] DEBUG - connectionpool.py: Starting new HTTP connection (1): localhost:63779
+[2025-04-05 04:55:28,701] DEBUG - connectionpool.py: http://localhost:63779 "POST /session HTTP/1.1" 200 0
+[2025-04-05 04:55:28,701] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"134.0.6998.179","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\scoped_dir7856_627742015"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:63782"},"networkConnectionEnabled":false,"pageLoadStrategy":"none","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"161fc5fc1987d045ba1e3cf1050a4ee9"}} | headers=HTTPHeaderDict({'Content-Length': '881', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:28,702] DEBUG - remote_connection.py: Finished Request
+[2025-04-05 04:55:28,702] INFO - browser.py: Browser chrome has been started.
+[2025-04-05 04:55:28,702] DEBUG - remote_connection.py: POST http://localhost:63779/session/161fc5fc1987d045ba1e3cf1050a4ee9/url {'url': 'http://skillbox.ru'}
+[2025-04-05 04:55:28,703] DEBUG - connectionpool.py: http://localhost:63779 "POST /session/161fc5fc1987d045ba1e3cf1050a4ee9/url HTTP/1.1" 200 0
+[2025-04-05 04:55:28,703] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:28,703] DEBUG - remote_connection.py: Finished Request
+[2025-04-05 04:55:28,704] DEBUG - remote_connection.py: GET http://localhost:63779/session/161fc5fc1987d045ba1e3cf1050a4ee9/title {}
+[2025-04-05 04:55:28,847] DEBUG - connectionpool.py: http://localhost:63779 "GET /session/161fc5fc1987d045ba1e3cf1050a4ee9/title HTTP/1.1" 200 0
+[2025-04-05 04:55:28,847] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":"Skillbox – образовательная платформа с онлайн-курсами."} | headers=HTTPHeaderDict({'Content-Length': '106', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:28,847] DEBUG - remote_connection.py: Finished Request
+[2025-04-05 04:55:28,928] DEBUG - remote_connection.py: DELETE http://localhost:63779/session/161fc5fc1987d045ba1e3cf1050a4ee9 {}
+[2025-04-05 04:55:28,958] DEBUG - connectionpool.py: http://localhost:63779 "DELETE /session/161fc5fc1987d045ba1e3cf1050a4ee9 HTTP/1.1" 200 0
+[2025-04-05 04:55:28,958] DEBUG - remote_connection.py: Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+[2025-04-05 04:55:28,958] DEBUG - remote_connection.py: Finished Request
