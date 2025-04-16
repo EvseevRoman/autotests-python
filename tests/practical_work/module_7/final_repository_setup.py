@@ -35,9 +35,9 @@ class TestValidation:
             field_search = wait_visible_elements(wait, "//input[@id='repository-input']")
         with allure.step('Сделать клик по полю поиска'):
             field_search.click()
-        with allure.step('Ввести в поле поиска текст "bug", по которому будет проводиться сортировка и нажать ENTER'):
+        with allure.step('Ввести в поле поиска текст "bug", по которму будет проводиться сортировка и нажать ENTER'):
             field_search.send_keys(search_text + Keys.ENTER)
-        with allure.step('Дождаться наличия текста "Bug" в найденной задаче'):
+        with allure.step('Дождаться наличия текста "Bug" в найденой задаче'):
             wait.until(EC.text_to_be_present_in_element((By.XPATH, "//h3/a/span"), "bug"))
 
         check_elements_search(wait, path, cnt_elements, search_text)
@@ -75,7 +75,7 @@ class TestValidation:
         with allure.step('Выполнить проверку того, что автор каждой из задач на странице, "bpasero"'):
             check_elements_search(wait, path, cnt_elements, search_text)
 
-    @allure.title('Валидация страницы "Расширенного поиска" на сайте github по нескольким параметрам')
+    @allure.title('Валидация страницы "Расширенного поиска" на сайте gitgub по нескольким параметрам')
     def test_validation_search_multiple_input_fields(self, selenium):
         wait = WebDriverWait(selenium, timeout=10)
         action_chains = ActionChains(selenium)
@@ -105,13 +105,13 @@ class TestValidation:
         with allure.step('Сделать клик по кнопке "Поиск"'):
             action_chains.click(button_search).perform()
 
-        with allure.step('Выполнить проверку того, что найденные результаты поиска соответствуют заданным параметрам'):
+        with allure.step('Выполнить проверку того, что найденые результаты поиска соответствуют заданным параметрам'):
             for i in range(1, 11):
                 path_language = f"(//*[contains( @class, 'Box-sc-g0xbh4-0 eCfCAC')]/div/following-sibling::span)[{i}]"
                 path_stars = f"(//*[contains(@class, 'Box-sc-g0xbh4-0 iPuHRc prc-Link-Link-85e08')]/span)[{i}]"
-                with allure.step('Дождаться элемента отображающего язык программирования в DOM-дереве страницы'):
+                with allure.step('Дождаться элемента отбражающего язык програмирования в DOM-дереве страницы'):
                     language = wait_element_in_dom_tree(wait, path_language).text
-                with allure.step('Дождаться элемента отображающего количество звёзд в DOM-дереве страницы"'):
+                with allure.step('Дождаться элемента отбражающего количество звёзд в DOM-дереве страницы"'):
                     stars = wait_element_in_dom_tree(wait, path_stars).text
                 with allure.step(f"Проверку того, что {i}-й репозиторий на языке Python и имеет более 20000 звёзд'"):
                     assert int(stars[:-1]) > 20 and language == "Python"
@@ -125,7 +125,7 @@ class TestValidation:
             selenium.get("https://skillbox.ru/code/")
         with allure.step('Развернуть окно браузера на весь экран'):
             selenium.maximize_window()
-        with allure.step("Дождаться наличия элемента радиокнопки 'Профессия' раздела 'Тип обучения на платформе'"
+        with allure.step("Дождаться наличия элемента радикнопки 'Профессия' раздела 'Тип обучения на платформе'"
                          " в DOM-дереве страницы"):
             radio_button = wait_element_in_dom_tree(wait, "//label/child::span[contains(text(), 'Профессия')]")
         with allure.step('Сделать клик по радиокнопке Профессия"'):
@@ -163,7 +163,7 @@ class TestValidation:
             filter_checkboxes = selenium \
                 .find_element(By.XPATH,
                               '//button[@class="ui-expand-button filter-checkboxes__button ui-expand-button--small"]')
-        with allure.step('Сделать клик по кнопке раскрывающегося списка Тематик'):
+        with allure.step('Сделать клик по кнопке раскрывающеося списка Тематик'):
             filter_checkboxes.click()
         with allure.step('Найти чекбокс "Python"'):
             topic = selenium.find_element(By.XPATH, '//span/child::span[contains(text(), "Python")]')
@@ -181,7 +181,7 @@ class TestValidation:
                         "с длительностью обучения от 6 до 12 месяцев"):
                     assert type_training == "Профессия" and 6 <= duration <= 12
 
-    @allure.title('Валидация отображаемого тултипа графика сайта github на ожидаемые значения')
+    @allure.title('Валидация отображаемого тултипа графика сайтf github на ожидаемые значения')
     def test_validation_chart(self, selenium):
         wait = WebDriverWait(selenium, timeout=30)
         action_chains = ActionChains(selenium)

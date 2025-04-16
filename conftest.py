@@ -6,7 +6,9 @@ logging.config.fileConfig(lof_file_path)
 
 
 pytest_plugins = [
-    "src.fixtures"
+    "src.fixtures",
+    "src.actions.callback.go_to_url",
+    "src.actions.callback.wait"
 ]
 
 

@@ -3,9 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-from src.action.checks.check_elements import check_elements_search
-from src.action.waits.wait_element_in_dom_tree import wait_element_in_dom_tree
-from src.action.waits.wait_visible_element import wait_visible_elements
+from src.actions.checks.check_elements import check_elements_search
+from src.actions.waits.wait_element_in_dom_tree import wait_element_in_dom_tree
+from src.actions.waits.wait_visible_element import wait_visible_elements
 
 
 class TestValidation:
