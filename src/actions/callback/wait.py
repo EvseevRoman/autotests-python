@@ -10,6 +10,7 @@ def wait_element(selenium):
         return WebDriverWait(selenium, timeout=60).until(lambda driver: driver.find_element(by, value))
     return callback
 
+
 @pytest.fixture
 def wait_elements(selenium):
     @allure.step('Ожидание списка элементов по {by} со значением {value}')

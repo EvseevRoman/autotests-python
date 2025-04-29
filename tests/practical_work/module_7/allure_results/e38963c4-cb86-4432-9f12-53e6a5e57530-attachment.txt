@@ -1,0 +1,1 @@
+INFO     root:check_elements.py:20 Start checking the required items

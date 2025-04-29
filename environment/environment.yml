@@ -1,11 +1,14 @@
 name: Skillbox_1
 channels:
   - conda-forge
+  - microsoft
 dependencies:
   - python=3.9
-  - requests
-  - selenium
-  - webdriver-manager
-  - pytest
-  - allure-pytest
-  - flake8
+  - pip:
+    - requests
+    - selenium
+    - webdriver-manager
+    - pytest
+    - allure-pytest
+    - flake8
+    - pytest-playwright

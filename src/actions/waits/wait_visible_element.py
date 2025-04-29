@@ -1,6 +1,4 @@
 import logging
-from telnetlib import EC
-
 import allure
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
