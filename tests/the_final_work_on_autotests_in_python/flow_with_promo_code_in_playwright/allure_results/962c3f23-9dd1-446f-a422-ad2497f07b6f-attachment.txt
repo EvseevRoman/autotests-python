@@ -1,0 +1,1 @@
+INFO     root:registration_user.py:15 Start mode registration user

@@ -1,0 +1,6 @@
+INFO     root:login.py:13 Start mode user authorization
+INFO     root:login.py:23 Finish mode user authorization
+INFO     root:filling_shopping_cart_goods.py:14 Start mode filling the shopping cart with goods
+INFO     root:filling_shopping_cart_goods.py:27 Finish mode filling the shopping cart with goods
+INFO     root:making_order.py:29 Start mode making an order
+INFO     root:making_order.py:63 Finish mode checking the active coupon

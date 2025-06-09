@@ -1,2 +1,12 @@
-[2025-04-29 04:54:56,315] INFO - check_elements.py: Start checking the required items
-[2025-04-29 04:54:57,484] INFO - check_elements.py: Finish checking the required items
+[2025-05-03 22:55:29,883] INFO - check_elements.py: Start checking the required items
+[2025-05-03 22:55:31,083] INFO - check_elements.py: Finish checking the required items
+[2025-05-03 22:55:33,745] INFO - check_elements.py: Start checking the required items
+[2025-05-03 22:55:34,945] INFO - check_elements.py: Finish checking the required items
+[2025-05-03 22:55:37,150] INFO - check_elements.py: Start checking the required items
+[2025-05-03 22:55:38,593] INFO - check_elements.py: Finish checking the required items
+[2025-05-03 22:55:38,593] INFO - check_elements.py: The beginning of checking the number of stars
+[2025-05-03 22:55:39,682] INFO - check_elements.py: End of checking the number of stars
+[2025-05-03 22:55:42,030] INFO - check_elements.py: Start checking the required items
+[2025-05-03 22:55:43,600] INFO - check_elements.py: Finish checking the required items
+[2025-05-03 22:55:43,601] INFO - check_elements.py: The beginning of checking the number of months
+[2025-05-03 22:55:44,663] INFO - check_elements.py: End of checking the number of stars

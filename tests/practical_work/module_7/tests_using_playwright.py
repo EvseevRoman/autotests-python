@@ -6,9 +6,9 @@ from src.actions.checks.check_elements import check_count_stars
 from src.actions.checks.check_elements import check_count_months
 
 
-@allure.testcase("Практическая работа по модулю 6")
-@allure.feature("Финальная настройка тестового репозитория для полноценной работы над тестами")
-@allure.story('Валидация состояния элементов с помощью Selenium')
+@allure.testcase("Практическая работа по модулю 7")
+@allure.feature("Научиться писать тесты с использованием нового инструмента Playwright")
+@allure.story('Валидация состояний элементов с помощью Playwright')
 class TestValidation:
 
     @allure.title('Проверка фильтрации страницы issues на сайте github по ключевым словам в заголовке')

@@ -1,0 +1,6 @@
+[INFO][2025-06-08 04:00:36,682][root] Start mode user authorization
+[INFO][2025-06-08 04:00:37,532][root] Finish mode user authorization
+[INFO][2025-06-08 04:00:45,780][root] Start mode filling the shopping cart with goods
+[INFO][2025-06-08 04:00:50,376][root] Finish mode filling the shopping cart with goods
+[INFO][2025-06-08 04:00:51,381][root] Start mode making an order
+[INFO][2025-06-08 04:00:52,047][root] Finish mode checking the active coupon

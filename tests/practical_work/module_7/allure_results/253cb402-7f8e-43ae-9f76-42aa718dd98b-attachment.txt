@@ -1,2 +1,0 @@
-INFO     root:check_elements.py:19 Start checking the required items
-INFO     root:check_elements.py:28 Finish checking the required items

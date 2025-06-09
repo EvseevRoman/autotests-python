@@ -1,4 +1,5 @@
 import logging
+import pytest
 
 from allure_commons._allure import step
 from selenium.webdriver import Chrome
@@ -9,17 +10,16 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-import pytest
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="package")
 def selenium(pytestconfig):
     browser_name = pytestconfig.getini("browser_name")  # Получаем переменную browser_name
 
     logging.info(f'Prepare {browser_name} browser ...')
     if pytestconfig.getini("browser_name") == 'chrome':
         options = ChromeOptions()
-        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--start-maximized")
         options.page_load_strategy = pytestconfig.getini("wait")  # Режим ожидания
         if pytestconfig.getini("headless") == 'True' and browser_name == 'chrome':  # Условия отображения интерфейса
             options.add_argument("--headless")  # Включаем headless режим
@@ -27,7 +27,7 @@ def selenium(pytestconfig):
             driver = Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     elif pytestconfig.getini("browser_name") == 'firefox':
         options = FirefoxOptions()
-        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--start-maximized")
         options.page_load_strategy = pytestconfig.getini("wait")  # Режим ожидания
         with step('Запуск браузера'):
             driver = Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)

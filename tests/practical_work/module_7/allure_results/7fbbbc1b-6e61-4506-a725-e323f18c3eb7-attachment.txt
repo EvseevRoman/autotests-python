@@ -1,4 +1,0 @@
-INFO     root:check_elements.py:20 Start checking the required items
-INFO     root:check_elements.py:28 Finish checking the required items
-INFO     root:check_elements.py:46 The beginning of checking the number of months
-INFO     root:check_elements.py:54 End of checking the number of stars

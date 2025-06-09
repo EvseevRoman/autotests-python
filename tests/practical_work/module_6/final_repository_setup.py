@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from src.actions.checks.check_elements import check_elements_search
 from src.actions.waits.wait_element_in_dom_tree import wait_element_in_dom_tree
-from src.actions.waits.wait_visible_element import wait_visible_elements
+from src.actions.waits.wait_visible_element import wait_visible_element
 
 
 @allure.testcase("Практическая работа по модулю 6")
@@ -26,13 +26,13 @@ class TestValidation:
         with allure.step('Открыть страницу https://github.com/microsoft/vscode/issues'):
             selenium.get("https://github.com/microsoft/vscode/issues")
         with allure.step('Дождаться того, что элемент "Поле поиска" присутствует в DOM страницы и виден'):
-            field_search = wait_visible_elements(wait, "//input[@id='repository-input']")
+            field_search = wait_visible_element(wait, "//input[@id='repository-input']")
         with allure.step('Сделать клик по полю поиска'):
             field_search.click()
         with allure.step('Ввести в поле поиска, сортировку по "in:title " и нажать ENTER'):
             field_search.send_keys(head + Keys.ENTER)
         with allure.step('Дождаться того, что элемент "Поля поиска" присутствует в DOM страницы и виден'):
-            field_search = wait_visible_elements(wait, "//input[@id='repository-input']")
+            field_search = wait_visible_element(wait, "//input[@id='repository-input']")
         with allure.step('Сделать клик по полю поиска'):
             field_search.click()
         with allure.step('Ввести в поле поиска текст "bug", по которому будет проводиться сортировка и нажать ENTER'):
@@ -70,7 +70,7 @@ class TestValidation:
         with allure.step('Сделать клик по полю с искомым автором'):
             choice_author.click()
         with allure.step('Дождаться того, что все элементы присутствуют в DOM страницы и видны'):
-            wait_visible_elements(wait, '//a[contains(text(), "bpasero")]')
+            wait_visible_element(wait, '//a[contains(text(), "bpasero")]')
 
         with allure.step('Выполнить проверку того, что автор каждой из задач на странице, "bpasero"'):
             check_elements_search(wait, path, cnt_elements, search_text)
@@ -113,7 +113,7 @@ class TestValidation:
                     language = wait_element_in_dom_tree(wait, path_language).text
                 with allure.step('Дождаться элемента отображающего количество звёзд в DOM-дереве страницы"'):
                     stars = wait_element_in_dom_tree(wait, path_stars).text
-                with allure.step(f"Проверку того, что {i}-й репозиторий на языке Python и имеет более 20000 звёзд'"):
+                with allure.step(f"Проверка того, что {i}-й репозиторий на языке Python и имеет более 20000 звёзд'"):
                     assert int(stars[:-1]) > 20 and language == "Python"
 
     @allure.title('Валидация фильтра курсов при помощи радиокнопки, слайдера и чекбокса сайта SkillBox')

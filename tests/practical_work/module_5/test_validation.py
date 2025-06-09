@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from src.actions.checks.check_elements import check_elements_search
 from src.actions.waits.wait_element_in_dom_tree import wait_element_in_dom_tree
-from src.actions.waits.wait_visible_element import wait_visible_elements
+from src.actions.waits.wait_visible_element import wait_visible_element
 
 
 class TestValidation:
@@ -19,10 +19,10 @@ class TestValidation:
         path = f'(//h3/a/span)[{element_search}]'
 
         selenium.get("https://github.com/microsoft/vscode/issues")
-        field_search = wait_visible_elements(wait, "//input[@id='repository-input']")
+        field_search = wait_visible_element(wait, "//input[@id='repository-input']")
         field_search.click()
         field_search.send_keys(head + Keys.ENTER)
-        field_search = wait_visible_elements(wait, "//input[@id='repository-input']")
+        field_search = wait_visible_element(wait, "//input[@id='repository-input']")
         field_search.click()
         field_search.send_keys(search_text + Keys.ENTER)
         wait.until(EC.text_to_be_present_in_element((By.XPATH, "//h3/a/span"), "bug"))
@@ -81,7 +81,6 @@ class TestValidation:
         action_chains = ActionChains(selenium)
 
         selenium.get("https://skillbox.ru/code/")
-        selenium.maximize_window()
         radio_button = wait_element_in_dom_tree(wait, "//label/child::span[contains(text(), 'Профессия')]")
         action_chains.click(radio_button) \
             .perform()
