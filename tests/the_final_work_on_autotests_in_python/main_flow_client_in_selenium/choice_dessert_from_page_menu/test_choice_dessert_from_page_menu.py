@@ -12,11 +12,13 @@ from src.actions.helper.logout import logout
 
 
 @allure.epic("Финальная работа по курсу «Автотесты на Python")
-@allure.feature('Тестирование функционала сайта Pizzeria')
+@allure.feature("Тестирование функционала сайта Pizzeria")
 @allure.story('Функциональное тестирование вкладки "Меню"')
 class TestPageMenu:
 
-    @allure.title('Открытие выпадающего списка при наведении курсора на вкладку "Меню" из корзины')
+    @allure.title(
+        'Открытие выпадающего списка при наведении курсора на вкладку "Меню" из корзины'
+    )
     def test_open_selector_page_menu(self, open_page, selenium):
         """
         Шаги:
@@ -33,11 +35,11 @@ class TestPageMenu:
 
         with step('Навести курсор на вкладку "Меню"'):
             go_to_element(wait, action_chains, path_page_menu)
-        with step('Проверка того, что появляется выпадающий список'):
+        with step("Проверка того, что появляется выпадающий список"):
             allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
             assert wait_visible_element(wait, path_submenu)
 
@@ -64,13 +66,13 @@ class TestPageMenu:
             go_to_element(wait, action_chains, path_section_desserts)
         with step('Сделать клик по разделу "Десерты"'):
             action_chains.click().perform()
-        with step('Проверка того, что открылась страница с десертом'):
+        with step("Проверка того, что открылась страница с десертом"):
             allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
-            assert wait.until(EC.url_contains('deserts'))
+            assert wait.until(EC.url_contains("deserts"))
 
     @allure.title('Фильтрация товаров по цене <= 135 рублей на страницы "Десерты"')
     def test_product_filtering(self, open_page, selenium):
@@ -84,39 +86,53 @@ class TestPageMenu:
         """
         wait = WebDriverWait(selenium, timeout=10)
         action_chains = ActionChains(selenium)
-        path_right_button_slider = "(//span[contains(@class, 'ui-slider-handle ui')])[2]"
+        path_right_button_slider = (
+            "(//span[contains(@class, 'ui-slider-handle ui')])[2]"
+        )
         path_button_apply = "//button[contains(text(), 'Применить')]"
-        path_price_desserts = "//span[@class='price']/span[@class='woocommerce-Price-amount amount']//bdi"
+        path_price_desserts = (
+            "//span[@class='price']/span[@class='woocommerce-Price-amount amount']//bdi"
+        )
         path_price_filter = "//span[@class='to']"
         distance = -1
 
         open_page("https://pizzeria.skillbox.cc/product-category/menu/deserts/")
         logout(wait, action_chains, go_to_element)
 
-        with step('Навести курсор на правый ползунок фильтра по цене'):
+        with step("Навести курсор на правый ползунок фильтра по цене"):
             go_to_element(wait, action_chains, path_right_button_slider)
-        with step('Установить правый ползунок фильтра по цене товара, в диапазон до 135 рублей, включительно'):
+        with step(
+            "Установить правый ползунок фильтра по цене товара, в диапазон до 135 рублей, включительно"
+        ):
             price_filter = int(wait_visible_element(wait, path_price_filter).text[:3])
             while price_filter >= 135:
-                action_chains.click_and_hold().move_by_offset(xoffset=distance, yoffset=0).release().perform()
-                price_filter = int(wait_visible_element(wait, path_price_filter).text[:3])
+                action_chains.click_and_hold().move_by_offset(
+                    xoffset=distance, yoffset=0
+                ).release().perform()
+                price_filter = int(
+                    wait_visible_element(wait, path_price_filter).text[:3]
+                )
                 distance -= 1
         with step('Навести курсор на кнопку "Применить"'):
             go_to_element(wait, action_chains, path_button_apply)
         with step('Сделать клик по кнопке "Применить"'):
             action_chains.click().perform()
-        with step('Проверка того, что отображается товар удовлетворяющий условиям установленного фильтра'):
+        with step(
+            "Проверка того, что отображается товар удовлетворяющий условиям установленного фильтра"
+        ):
             allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
-            prices_desserts = wait.until(EC.visibility_of_all_elements_located((By.XPATH, path_price_desserts)))
+            prices_desserts = wait.until(
+                EC.visibility_of_all_elements_located((By.XPATH, path_price_desserts))
+            )
             for price in prices_desserts:
                 price = int(price.text[:3])
                 assert price <= 135
 
-    @allure.title('Добавление десерта в корзину')
+    @allure.title("Добавление десерта в корзину")
     def test_adding_dessert_to_the_cart(self, open_page, selenium):
         """
         Шаги:
@@ -137,7 +153,7 @@ class TestPageMenu:
             go_to_element(wait, action_chains, path_button_in_cart)
         with step('Сделать клик по кнопке "В корзину"'):
             action_chains.click().perform()
-        with step('Проверка того, что сумма корзины изменилась'):
+        with step("Проверка того, что сумма корзины изменилась"):
             time.sleep(1)
             price_cart_finish = wait_visible_element(wait, path_price_cart).text
             assert price_cart_begin != price_cart_finish

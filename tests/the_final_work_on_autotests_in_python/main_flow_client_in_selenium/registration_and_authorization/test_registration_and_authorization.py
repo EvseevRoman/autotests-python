@@ -14,11 +14,11 @@ from src.actions.waits.wait_visible_element import wait_visible_element
 
 
 @allure.epic("Финальная работа по курсу «Автотесты на Python")
-@allure.feature('Тестирование функционала сайта Pizzeria')
-@allure.story('Регистрация и авторизация')
+@allure.feature("Тестирование функционала сайта Pizzeria")
+@allure.story("Регистрация и авторизация")
 class TestRegistrationAuthorization:
 
-    @allure.title('Переход к регистрации через «Мой аккаунт»')
+    @allure.title("Переход к регистрации через «Мой аккаунт»")
     def test_registration_through_my_account(self, open_page, selenium):
         """
         Шаги:
@@ -45,8 +45,9 @@ class TestRegistrationAuthorization:
         with step('Сделать клик по кнопке "Зарегистрироваться"'):
             action_chains.click().perform()
 
-        with step('Проверка того, что открылась страница Регистрации'):
-            assert wait.until(EC.url_contains('register'))
+        with step("Проверка того, что открылась страница Регистрации"):
+            assert wait.until(EC.url_contains("register"))
+
     pass
 
     @allure.title("Регистрация пользователя")
@@ -108,7 +109,7 @@ class TestRegistrationAuthorization:
             assert invitation == "Выйти", allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
         pass
 
@@ -181,13 +182,17 @@ class TestRegistrationAuthorization:
         with step('Сделать клик по вкладке "Данные аккаунта"'):
             action_chains.click().perform()
 
-        with step('Проверка того, что введённые данные отображаются корректно'):
-            value_name = wait_visible_element(wait, path_field_name).get_attribute("value")
-            value_email = wait_visible_element(wait, path_adress_email).get_attribute("value")
+        with step("Проверка того, что введённые данные отображаются корректно"):
+            value_name = wait_visible_element(wait, path_field_name).get_attribute(
+                "value"
+            )
+            value_email = wait_visible_element(wait, path_adress_email).get_attribute(
+                "value"
+            )
             assert username == value_name and email == value_email, allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
         pass
 
@@ -241,11 +246,11 @@ class TestRegistrationAuthorization:
         with step('Сделать клик по кнопке "Войти"'):
             action_chains.click().perform()
 
-        with step('Проверка того, что появилось сообщение об успешной авторизации'):
+        with step("Проверка того, что появилось сообщение об успешной авторизации"):
             welcome = wait_visible_element(wait, path_welcome).text
             assert welcome == f"| Привет {value_username} !", allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
         pass

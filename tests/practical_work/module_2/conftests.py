@@ -9,6 +9,8 @@ from webdriver_manager.firefox import GeckoDriverManager
 def selenium_fox(pytestconfig):
     firefox_options = Options()
     # chrome_options.add_argument("--headless")  # Включаем headless режим
-    driver = Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
+    driver = Firefox(
+        service=FirefoxService(GeckoDriverManager().install()), options=firefox_options
+    )
     yield driver
     driver.quit()

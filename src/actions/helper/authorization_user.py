@@ -6,9 +6,11 @@ import allure
 from allure_commons._allure import step
 
 
-@allure.title('Запуск процесса авторизации пользователя через кнопку "Войти" перехода на Главную страницу')
+@allure.title(
+    'Запуск процесса авторизации пользователя через кнопку "Войти" перехода на Главную страницу'
+)
 def authorization_user(wait, action_chains, go_to_element, username, password):
-    logging.info('Starting the authorization process')
+    logging.info("Starting the authorization process")
     path_my_account = "(//a[contains(text(), 'Мой аккаунт')])[1]"
     path_field_username = "//input[@id='username']"
     path_field_password = "//input[@id='password']"
@@ -19,8 +21,8 @@ def authorization_user(wait, action_chains, go_to_element, username, password):
         go_to_element(wait, action_chains, path_my_account)
     with step('Сделать клик по ссылке "Мой аккаунт"'):
         action_chains.click().perform()
-    with step('Дождаться загрузки страницы авторизации'):
-        wait.until(EC.url_to_be('https://pizzeria.skillbox.cc/my-account/'))
+    with step("Дождаться загрузки страницы авторизации"):
+        wait.until(EC.url_to_be("https://pizzeria.skillbox.cc/my-account/"))
     with step('Навести курсор на поле "Имя пользователя или почта"'):
         field_email = go_to_element(wait, action_chains, path_field_username)
     with step('Сделать клик по полю "Имя пользователя или почта"'):
@@ -43,4 +45,4 @@ def authorization_user(wait, action_chains, go_to_element, username, password):
         go_to_element(wait, action_chains, path_page_main)
     with step('Сделать клик по ссылке "Главная"'):
         action_chains.click().perform()
-    logging.info('End of the authorization process')
+    logging.info("End of the authorization process")

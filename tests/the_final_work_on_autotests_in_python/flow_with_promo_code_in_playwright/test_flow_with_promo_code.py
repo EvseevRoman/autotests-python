@@ -11,11 +11,11 @@ from src.actions.helper.registration_user import registration_user
 
 
 @allure.epic("Финальная работа по курсу «Автотесты на Python")
-@allure.feature('Тестирование функционала сайта Pizzeria')
-@allure.story('Флоу с промокодом на фреймворке playwright')
+@allure.feature("Тестирование функционала сайта Pizzeria")
+@allure.story("Флоу с промокодом на фреймворке playwright")
 class TestFlowPromoCode:
 
-    @allure.title('Проверка работы валидного купона')
+    @allure.title("Проверка работы валидного купона")
     def test_valid_coupon_verification(self, go_to_url, page: Page):
         """
         Сценарий №1
@@ -59,15 +59,19 @@ class TestFlowPromoCode:
         page.wait_for_timeout(1000)
         input_coupon(page, coupon)
 
-        with step('Проверить, что сумма заказа уменьшилась на 10%'):
+        with step("Проверить, что сумма заказа уменьшилась на 10%"):
             page.wait_for_timeout(1000)
             page.locator(path_order_total).scroll_into_view_if_needed()
-            order_subtotal = float(page.locator(path_order_subtotal).inner_text()[:-1].replace(',', '.'))
-            order_total = float(page.locator(path_order_total).inner_text()[:-1].replace(',', '.'))
+            order_subtotal = float(
+                page.locator(path_order_subtotal).inner_text()[:-1].replace(",", ".")
+            )
+            order_total = float(
+                page.locator(path_order_total).inner_text()[:-1].replace(",", ".")
+            )
             assert order_subtotal * 0.9 == order_total, f"Купон {coupon} не применился!"
         pass
 
-    @allure.title('Проверка не валидного купона')
+    @allure.title("Проверка не валидного купона")
     def test_checking_invalid_coupon(self, go_to_url, page: Page):
         """
         Сценарий №2
@@ -112,15 +116,21 @@ class TestFlowPromoCode:
         page.wait_for_timeout(1000)
         input_coupon(page, coupon)
 
-        with step('Проверить, что сумма заказа не изменилась'):
+        with step("Проверить, что сумма заказа не изменилась"):
             page.wait_for_timeout(1000)
             page.locator(path_order_total).scroll_into_view_if_needed()
-            order_subtotal = float(page.locator(path_order_subtotal).inner_text()[:-1].replace(',', '.'))
-            order_total = float(page.locator(path_order_total).inner_text()[:-1].replace(',', '.'))
-            assert order_subtotal == order_total, f"Купон {coupon} был успешно применён!"
+            order_subtotal = float(
+                page.locator(path_order_subtotal).inner_text()[:-1].replace(",", ".")
+            )
+            order_total = float(
+                page.locator(path_order_total).inner_text()[:-1].replace(",", ".")
+            )
+            assert (
+                order_subtotal == order_total
+            ), f"Купон {coupon} был успешно применён!"
         pass
 
-    @allure.title('Проверка работы купона, при не работающем сервере')
+    @allure.title("Проверка работы купона, при не работающем сервере")
     def test_coupon_application_wthen_server_down(self, go_to_url, page: Page):
         """
         Сценарий №3
@@ -164,6 +174,7 @@ class TestFlowPromoCode:
             route.fulfill(
                 status=500,
             )
+
         page.route("**/?wc-ajax=apply_coupon", handle)
 
         go_to_url("https://pizzeria.skillbox.cc/")
@@ -175,15 +186,21 @@ class TestFlowPromoCode:
         page.wait_for_timeout(1000)
         input_coupon(page, coupon)
 
-        with step('Проверить, что сумма заказа не изменилась'):
+        with step("Проверить, что сумма заказа не изменилась"):
             page.wait_for_timeout(1000)
             page.locator(path_order_total).scroll_into_view_if_needed()
-            order_subtotal = float(page.locator(path_order_subtotal).inner_text()[:-1].replace(',', '.'))
-            order_total = float(page.locator(path_order_total).inner_text()[:-1].replace(',', '.'))
-            assert order_subtotal == order_total, f"Купон {coupon} был успешно применён!"
+            order_subtotal = float(
+                page.locator(path_order_subtotal).inner_text()[:-1].replace(",", ".")
+            )
+            order_total = float(
+                page.locator(path_order_total).inner_text()[:-1].replace(",", ".")
+            )
+            assert (
+                order_subtotal == order_total
+            ), f"Купон {coupon} был успешно применён!"
         pass
 
-    @allure.title('Проверка повторного использования купона')
+    @allure.title("Проверка повторного использования купона")
     def test_coupon_reuse_check(self, go_to_url, page: Page):
         """
         Сценарий №4
@@ -231,7 +248,9 @@ class TestFlowPromoCode:
              Password = qwe123!@#
              Coupon = GIVEMEHALYAVA
         """
-        path_order_subtotal = "//th[contains(text(), 'Subtotal')]/following-sibling::td/span"
+        path_order_subtotal = (
+            "//th[contains(text(), 'Subtotal')]/following-sibling::td/span"
+        )
         path_order_total = "//th[contains(text(), 'Total')]/following-sibling::td/span"
         coupon = "GIVEMEHALYAVA"
         username = "po15"
@@ -256,10 +275,16 @@ class TestFlowPromoCode:
         page.wait_for_timeout(1000)
         making_order(page, value_telephone)
 
-        with step('Проверить, что купон при втором заказе не применился'):
+        with step("Проверить, что купон при втором заказе не применился"):
             page.wait_for_timeout(1000)
             page.locator(path_order_total).scroll_into_view_if_needed()
-            order_subtotal = float(page.locator(path_order_subtotal).inner_text()[:-1].replace(',', '.'))
-            order_total = float(page.locator(path_order_total).inner_text()[:-1].replace(',', '.'))
-            assert order_subtotal == order_total, f"Повторное использование купона {coupon} прошло успешно!"
+            order_subtotal = float(
+                page.locator(path_order_subtotal).inner_text()[:-1].replace(",", ".")
+            )
+            order_total = float(
+                page.locator(path_order_total).inner_text()[:-1].replace(",", ".")
+            )
+            assert (
+                order_subtotal == order_total
+            ), f"Повторное использование купона {coupon} прошло успешно!"
         pass

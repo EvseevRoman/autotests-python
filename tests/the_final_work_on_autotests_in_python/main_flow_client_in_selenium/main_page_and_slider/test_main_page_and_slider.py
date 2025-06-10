@@ -13,11 +13,11 @@ from src.actions.waits.wait_visible_element import wait_visible_element
 
 
 @allure.epic("Финальная работа по курсу «Автотесты на Python")
-@allure.feature('Тестирование функционала сайта Pizzeria')
-@allure.story('Функциональное тестирование главной страницы и слайдера')
+@allure.feature("Тестирование функционала сайта Pizzeria")
+@allure.story("Функциональное тестирование главной страницы и слайдера")
 class TestMainPage:
 
-    @allure.title('Отображение главной страницы сайта')
+    @allure.title("Отображение главной страницы сайта")
     def test_open_main_page(self, open_page, selenium):
         """
         Шаги:
@@ -30,11 +30,11 @@ class TestMainPage:
         open_page("https://pizzeria.skillbox.cc/")
         logout(wait, action_chains, go_to_element)
 
-        with step('Проверка того, что открылся нужный сайт'):
+        with step("Проверка того, что открылся нужный сайт"):
             allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
             assert wait.until(EC.url_contains(website))
 
@@ -51,11 +51,13 @@ class TestMainPage:
         open_page("https://pizzeria.skillbox.cc/")
         logout(wait, action_chains, go_to_element)
 
-        with step('Проверка того, что на главной странице отображается слайдер с пиццами'):
+        with step(
+            "Проверка того, что на главной странице отображается слайдер с пиццами"
+        ):
             allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
             assert wait_visible_element(wait, path_slider)
 
@@ -69,18 +71,22 @@ class TestMainPage:
         wait = WebDriverWait(selenium, timeout=10)
         action_chains = ActionChains(selenium)
         path_pizza = "//li[contains(@class, 'slick-active')]"
-        path_button = "//li[contains(@class, 'slick-active')]//a[contains(text(), 'В корзину')]"
+        path_button = (
+            "//li[contains(@class, 'slick-active')]//a[contains(text(), 'В корзину')]"
+        )
 
         open_page("https://pizzeria.skillbox.cc/")
         logout(wait, action_chains, go_to_element)
 
-        with step('Навести курсор на картинку с пиццей'):
+        with step("Навести курсор на картинку с пиццей"):
             go_to_element(wait, action_chains, path_pizza)
-        with step('Проверка того, что при наведении курсора на пиццу появляется кнопка "В корзину"'):
+        with step(
+            'Проверка того, что при наведении курсора на пиццу появляется кнопка "В корзину"'
+        ):
             allure.attach(
                 selenium.get_screenshot_as_png(),
                 name="screenshot_fail",
-                attachment_type=allure.attachment_type.PNG
+                attachment_type=allure.attachment_type.PNG,
             )
             assert wait_visible_element(wait, path_button)
 
@@ -103,15 +109,17 @@ class TestMainPage:
         open_page("https://pizzeria.skillbox.cc/")
         logout(wait, action_chains, go_to_element)
 
-        with step('Навести курсор на слайдер'):
+        with step("Навести курсор на слайдер"):
             go_to_element(wait, action_chains, path_slider)
             title_first_pizza = wait_visible_element(wait, path_title_first_pizza).text
-        with step('Навести курсор на левую кнопку прокрутки слайдера'):
+        with step("Навести курсор на левую кнопку прокрутки слайдера"):
             go_to_element(wait, action_chains, path_left_button_slider)
-        with step('Сделать клик по левой кнопке слайдера'):
+        with step("Сделать клик по левой кнопке слайдера"):
             action_chains.click().perform()
-            title_second_pizza = wait_visible_element(wait, path_title_second_pizza).text
-        with step('Проверка того, что первая пицца сместилась вправо'):
+            title_second_pizza = wait_visible_element(
+                wait, path_title_second_pizza
+            ).text
+        with step("Проверка того, что первая пицца сместилась вправо"):
             assert title_first_pizza == title_second_pizza
 
     @allure.title("Проверка работы правой кнопки прокрутки слайдера с пиццами")
@@ -133,18 +141,18 @@ class TestMainPage:
         open_page("https://pizzeria.skillbox.cc/")
         logout(wait, action_chains, go_to_element)
 
-        with step('Навести курсор на слайдер'):
+        with step("Навести курсор на слайдер"):
             go_to_element(wait, action_chains, path_slider)
             title_end_pizza = wait_visible_element(wait, path_title_end_pizza).text
-        with step('Навести курсор на правую кнопку прокрутки слайдера'):
+        with step("Навести курсор на правую кнопку прокрутки слайдера"):
             go_to_element(wait, action_chains, path_right_button_slider)
-        with step('Сделать клик по правой кнопке слайдера'):
+        with step("Сделать клик по правой кнопке слайдера"):
             action_chains.click().perform()
             title_third_pizza = wait_visible_element(wait, path_title_third_pizza).text
-        with step('Проверка того, что последняя пицца сместилась влево'):
+        with step("Проверка того, что последняя пицца сместилась влево"):
             assert title_third_pizza == title_end_pizza
 
-    @allure.title('Добавление нескольких пицц в корзину')
+    @allure.title("Добавление нескольких пицц в корзину")
     def test_adding_pizza_cart(self, open_page, selenium):
         """
         Шаги:
@@ -161,7 +169,9 @@ class TestMainPage:
         wait = WebDriverWait(selenium, timeout=10)
         action_chains = ActionChains(selenium)
         path_first_pizza = "//li[contains(@class, 'slick-active')]"
-        path_first_button = "//li[contains(@class, 'slick-active')]//a[contains(text(), 'В корзину')]"
+        path_first_button = (
+            "//li[contains(@class, 'slick-active')]//a[contains(text(), 'В корзину')]"
+        )
         path_left_button_slider = "//a[@class='slick-prev']"
         path_price_cart = "//a[contains(@class, 'cart-contents')]"
 
@@ -169,24 +179,24 @@ class TestMainPage:
         logout(wait, action_chains, go_to_element)
         begin_price = wait_visible_element(wait, path_price_cart).text
 
-        with step('Навести курсор на любую пиццу в слайдере'):
+        with step("Навести курсор на любую пиццу в слайдере"):
             go_to_element(wait, action_chains, path_first_pizza)
         with step('Навести курсор на кнопку "В корзину"'):
             go_to_element(wait, action_chains, path_first_button)
         with step('Сделать клик по кнопке "В корзину"'):
             action_chains.click().perform()
-        with step('Навести курсор на левую кнопку прокрутки слайдера'):
+        with step("Навести курсор на левую кнопку прокрутки слайдера"):
             go_to_element(wait, action_chains, path_left_button_slider)
-        with step('Сделать клик по левой кнопке слайдера'):
+        with step("Сделать клик по левой кнопке слайдера"):
             action_chains.click().perform()
-        with step('Навести курсор на добавившуюся пиццу в слайдере'):
+        with step("Навести курсор на добавившуюся пиццу в слайдере"):
             go_to_element(wait, action_chains, path_first_pizza)
         with step('Навести курсор на кнопку "В корзину"'):
             go_to_element(wait, action_chains, path_first_button)
         with step('Сделать клик по кнопке "В корзину"'):
             action_chains.click().perform()
 
-        with step('Проверка того, что сумма корзины изменилась'):
+        with step("Проверка того, что сумма корзины изменилась"):
             time.sleep(2)
             price = wait_visible_element(wait, path_price_cart).text
             assert begin_price != price

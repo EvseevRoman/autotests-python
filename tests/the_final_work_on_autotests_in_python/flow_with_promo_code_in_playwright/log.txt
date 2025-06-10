@@ -1,25 +1,25 @@
-[INFO][2025-06-08 04:01:30,261][root] Start mode user authorization
-[INFO][2025-06-08 04:01:30,983][root] Finish mode user authorization
-[INFO][2025-06-08 04:01:32,002][root] Start mode filling the shopping cart with goods
-[INFO][2025-06-08 04:01:36,571][root] Finish mode filling the shopping cart with goods
-[INFO][2025-06-08 04:01:37,587][root] Start mode checking the active coupon
-[INFO][2025-06-08 04:01:38,040][root] Finish mode checking the active coupon
-[INFO][2025-06-08 04:01:39,053][root] Start mode for input coupon
-[INFO][2025-06-08 04:01:41,400][root] Finish mode for input coupon
-[INFO][2025-06-08 04:01:43,263][root] Start mode user authorization
-[INFO][2025-06-08 04:01:44,092][root] Finish mode user authorization
-[INFO][2025-06-08 04:01:45,096][root] Start mode filling the shopping cart with goods
-[INFO][2025-06-08 04:01:49,708][root] Finish mode filling the shopping cart with goods
-[INFO][2025-06-08 04:01:50,726][root] Start mode checking the active coupon
-[INFO][2025-06-08 04:01:51,734][root] Finish mode checking the active coupon
-[INFO][2025-06-08 04:01:52,752][root] Start mode for input coupon
-[INFO][2025-06-08 04:01:55,440][root] Finish mode for input coupon
-[INFO][2025-06-08 04:01:57,272][root] Start mode user authorization
-[INFO][2025-06-08 04:01:58,286][root] Finish mode user authorization
-[INFO][2025-06-08 04:01:59,294][root] Start mode filling the shopping cart with goods
-[INFO][2025-06-08 04:02:04,159][root] Finish mode filling the shopping cart with goods
-[INFO][2025-06-08 04:02:05,173][root] Start mode checking the active coupon
-[INFO][2025-06-08 04:02:05,957][root] Finish mode checking the active coupon
-[INFO][2025-06-08 04:02:06,976][root] Start mode for input coupon
-[INFO][2025-06-08 04:02:09,389][root] Finish mode for input coupon
-[INFO][2025-06-08 04:02:11,409][root] Start mode registration user
+[INFO][2025-06-09 12:44:28,643][root] Start mode user authorization
+[INFO][2025-06-09 12:44:29,698][root] Finish mode user authorization
+[INFO][2025-06-09 12:44:30,709][root] Start mode filling the shopping cart with goods
+[INFO][2025-06-09 12:44:35,335][root] Finish mode filling the shopping cart with goods
+[INFO][2025-06-09 12:44:36,343][root] Start mode checking the active coupon
+[INFO][2025-06-09 12:44:36,709][root] Finish mode checking the active coupon
+[INFO][2025-06-09 12:44:37,728][root] Start mode for input coupon
+[INFO][2025-06-09 12:44:40,079][root] Finish mode for input coupon
+[INFO][2025-06-09 12:44:42,117][root] Start mode user authorization
+[INFO][2025-06-09 12:44:43,126][root] Finish mode user authorization
+[INFO][2025-06-09 12:44:44,139][root] Start mode filling the shopping cart with goods
+[INFO][2025-06-09 12:44:48,729][root] Finish mode filling the shopping cart with goods
+[INFO][2025-06-09 12:44:49,743][root] Start mode checking the active coupon
+[INFO][2025-06-09 12:44:50,321][root] Finish mode checking the active coupon
+[INFO][2025-06-09 12:44:51,334][root] Start mode for input coupon
+[INFO][2025-06-09 12:44:54,020][root] Finish mode for input coupon
+[INFO][2025-06-09 12:44:56,006][root] Start mode user authorization
+[INFO][2025-06-09 12:44:57,468][root] Finish mode user authorization
+[INFO][2025-06-09 12:44:58,476][root] Start mode filling the shopping cart with goods
+[INFO][2025-06-09 12:45:03,813][root] Finish mode filling the shopping cart with goods
+[INFO][2025-06-09 12:45:04,831][root] Start mode checking the active coupon
+[INFO][2025-06-09 12:45:07,032][root] Finish mode checking the active coupon
+[INFO][2025-06-09 12:45:08,042][root] Start mode for input coupon
+[INFO][2025-06-09 12:45:10,410][root] Finish mode for input coupon
+[INFO][2025-06-09 12:45:12,526][root] Start mode registration user

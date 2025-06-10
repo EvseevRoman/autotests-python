@@ -8,11 +8,11 @@ from src.actions.helper.making_order import making_order
 
 
 @allure.epic("Финальная работа по курсу «Автотесты на Python")
-@allure.feature('Тестирование функционала сайта Pizzeria')
-@allure.story('Флоу с бонусной системой на фреймворке playwright')
+@allure.feature("Тестирование функционала сайта Pizzeria")
+@allure.story("Флоу с бонусной системой на фреймворке playwright")
 class TestFlowBonusSystem:
 
-    @allure.title('Проверка успешной работы бонусной системы')
+    @allure.title("Проверка успешной работы бонусной системы")
     def test_flow_bonus_system(self, go_to_url, page: Page):
         """
         Сценарий №5
@@ -43,7 +43,9 @@ class TestFlowBonusSystem:
              Username = zlo
              Password = qwe123!@#
         """
-        path_order_subtotal = "//th[contains(text(), 'Subtotal')]/following-sibling::td/span"
+        path_order_subtotal = (
+            "//th[contains(text(), 'Subtotal')]/following-sibling::td/span"
+        )
         path_order_total = "//th[contains(text(), 'Total')]/following-sibling::td/span"
         path_note = "//th[contains(text(), 'Note')]/following-sibling::td"
         path_page_bonus_system = "(//a[contains(text(), 'Бонусная программа')])[1]"
@@ -74,11 +76,17 @@ class TestFlowBonusSystem:
         page.wait_for_timeout(1000)
         making_order(page, bonus_telephone)
 
-        with step(f'Проверить, что к телефону: {bonus_telephone}, применилась скидка 15%'):
+        with step(
+            f"Проверить, что к телефону: {bonus_telephone}, применилась скидка 15%"
+        ):
             page.wait_for_timeout(1000)
             page.locator(path_order_total).scroll_into_view_if_needed()
             note = page.locator(path_note).inner_text()
-            order_subtotal = float(page.locator(path_order_subtotal).inner_text()[:-1].replace(',', '.'))
-            order_total = float(page.locator(path_order_total).inner_text()[:-1].replace(',', '.'))
+            order_subtotal = float(
+                page.locator(path_order_subtotal).inner_text()[:-1].replace(",", ".")
+            )
+            order_total = float(
+                page.locator(path_order_total).inner_text()[:-1].replace(",", ".")
+            )
             assert note == bonus_telephone
             assert order_subtotal * 0.85 == order_total
