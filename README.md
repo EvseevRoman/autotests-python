@@ -26,7 +26,7 @@
 - *del .\miniconda.exe*
 
 ## 📁 Клонирование репозитория
-#### *git clone https://gitlab.skillbox.ru/roman_evseev_79/python-autotests-basic*
+#### *git clone https://github.com/EvseevRoman/autotests-python*
 #### *cd ваш-репозиторий*
 
 ## ✅ Создание и активация окружения 
